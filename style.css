@@ -1,0 +1,1017 @@
+/* Base Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: skyblue;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+h3 {
+    margin-bottom: 10px;
+}
+
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+
+/* Header / Hero */
+
+
+/* Navigation Header */
+
+.nav-header {
+    background: #f1f1f1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.nav-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6b00;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.nav-menu ul li a:hover {
+    color: #ff6b00;
+}
+
+
+/* Hamburger menu for mobile */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    border-radius: 2px;
+}
+
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: white;
+        border: 1px solid #ddd;
+        width: 180px;
+        padding: 10px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    .nav-menu.active {
+        display: block;
+    }
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-left: 20px;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+.hero {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px 30px;
+    border-radius: 12px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #ff6b00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 0px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: green;
+}
+
+
+/* About Section */
+
+.about {
+    padding: 60px 20px;
+    background: #fff6f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text small {
+    color: #ff6b00;
+    font-size: large;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-text h2 {
+    font-size: 30px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.about-text p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.about-text .btn {
+    background-color: #ff6b00;
+    color: white;
+}
+
+
+/* Image side */
+
+.about-images {
+    flex: 1;
+    position: relative;
+    min-height: 300px;
+    min-width: 300px;
+}
+
+.india-map {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    display: block;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+}
+
+
+/* Circular floating images */
+
+.circle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.circle-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    animation: float 6s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+.circle-img:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.circle-img:nth-child(2) {
+    top: 20%;
+    right: 10%;
+    animation-delay: 1s;
+}
+
+.circle-img:nth-child(3) {
+    bottom: 15%;
+    left: 15%;
+    animation-delay: 2s;
+}
+
+.circle-img:nth-child(4) {
+    bottom: 5%;
+    right: 20%;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-images {
+        order: -1;
+    }
+    .india-map {
+        max-width: 280px;
+    }
+    .circle-img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+/* Services Section */
+
+.services {
+    background: #fff;
+    padding: 60px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+    border-bottom: 4px solid transparent;
+}
+
+.service-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-bottom: 4px solid #ff6b00;
+}
+
+.card-img {
+    overflow: hidden;
+    height: 180px;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover .card-img img {
+    transform: scale(1.1);
+}
+
+.badge {
+    background-color: #ff6b00;
+    color: white;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-weight: bold;
+}
+
+.service-card h3 {
+    margin: 15px;
+    font-size: 20px;
+    color: #222;
+}
+
+.service-card p {
+    margin: 0 15px 15px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.card-cta {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 15px 20px;
+    flex-wrap: wrap;
+}
+
+
+/* CTA Buttons */
+
+.btn-primary {
+    background: #ff6b00;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: green;
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #ddd;
+}
+
+
+/* Responsive Card */
+
+@media (max-width: 600px) {
+    .card-cta {
+        flex-direction: column;
+    }
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* Cards */
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+/* Benefits */
+
+#textcenter {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#textcenter li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+
+/* Contact Form */
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input,
+select,
+textarea {
+    padding: 10px;
+    border-radius: 0px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+    font-size: 14px;
+}
+
+
+/* Animations */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 15px;
+    }
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 90%;
+    }
+    form {
+        padding: 0 10px;
+    }
+    .carousel-image {
+        object-fit: cover;
+    }
+}
+
+
+/* our tour */
+
+
+/* Tours Section */
+
+.tours {
+    padding: 60px 20px;
+    background: #fff6f0;
+}
+
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.tour-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.tour-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tour-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.tour-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.tour-card:hover .tour-img img {
+    transform: scale(1.1);
+}
+
+.tour-card h3 {
+    margin: 15px 0 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.tour-card p {
+    color: #666;
+    font-size: 14px;
+    margin: 0 15px;
+    line-height: 1.6;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .tour-img {
+        height: 160px;
+    }
+    .tour-card h3 {
+        font-size: 18px;
+    }
+    .tour-card p {
+        font-size: 13px;
+    }
+}
+
+
+/* For very small devices (Optional - below 360px) */
+
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 1.4rem;
+    }
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+    .circle-img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+
+/* ab */
+
+
+/* Default styles for mobile first (max-width: 767px) */
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.about-text {
+    text-align: center;
+}
+
+.about-text h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.about-images {
+    text-align: center;
+}
+
+.about-images img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.circle-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.circle-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* Tablet and above */
+
+@media (min-width: 768px) {
+    .about-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+        padding: 40px;
+    }
+    .about-text {
+        flex: 1;
+        text-align: left;
+    }
+    .about-images {
+        flex: 1;
+    }
+    .about-images img {
+        max-width: 100%;
+    }
+    .circle-img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+/* =======================
+   Default Styles (Mobile First)
+========================== */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    padding: 0 20px;
+}
+
+.nav-header {
+    background: #f1f1f1;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: none;
+}
+
+.menu-toggle {
+    display: block;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    background: orangered;
+    margin: 5px 0;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    background: #000;
+}
+
+.carousel-image {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-image.active {
+    display: block;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+/* About Section */
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.about-text {
+    text-align: center;
+}
+
+.about-images {
+    text-align: center;
+}
+
+.about-images img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.circle-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.circle-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* Services Section */
+
+.service-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.service-card {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.card-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.badge {
+    display: inline-block;
+    background: #ff6600;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: orangered;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #ccc;
+    color: #000;
+}
+
+
+/* Tour Section */
+
+.tour-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.tour-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+/* Benefits Section */
+
+.benefits ul {
+    list-style: none;
+    padding: 0 20px;
+}
+
+.benefits li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+
+/* Contact Section */
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.contact input,
+.contact select,
+.contact textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer {
+    background: blanchedalmond;
+    color: bla;
+    text-align: center;
+    padding: 15px;
+}
+
+
+/* =======================
+     Responsive Styles
+  ========================== */
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+    .nav-menu {
+        display: block !important;
+    }
+    .nav-menu ul {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+    }
+    .menu-toggle {
+        display: none;
+    }
+    .about-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px;
+    }
+    .about-text {
+        flex: 1;
+        text-align: left;
+    }
+    .about-images {
+        flex: 1;
+    }
+    .circle-img {
+        width: 80px;
+        height: 80px;
+    }
+    .service-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .service-card {
+        width: calc(33% - 15px);
+    }
+    .tour-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .tour-card {
+        width: calc(50% - 10px);
+    }
+    .contact form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .tour-card {
+        width: calc(25% - 15px);
+    }
+}
